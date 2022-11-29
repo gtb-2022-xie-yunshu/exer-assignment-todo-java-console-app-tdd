@@ -3,9 +3,15 @@
  */
 package com.tw.cn.cap.gtb.todo;
 
+import java.util.List;
+
 public class App {
 
     public static void main(String[] args) {
         throw  new UnsupportedOperationException();
+    }
+
+    public List<String> run() {
+return List.of("task 001","task 002","task 003");
     }
 }
