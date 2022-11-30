@@ -19,7 +19,9 @@ public class App {
         List<String> readList = getList();
         final var taskList = new ArrayList<String>();
         taskList.add("#To be done");
-        taskList.addAll(readList);
+        for (int i = 0; i < readList.size(); i++) {
+            taskList.add("%d %s".formatted(i + 1, readList.get(i)));
+        }
         return taskList;
     }
 
