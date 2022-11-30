@@ -16,12 +16,16 @@ public class App {
     }
 
     public List<String> run() {
+        List<String> readList = getList();
         final var taskList = new ArrayList<String>();
         taskList.add("#To be done");
+        taskList.addAll(readList);
+        return taskList;
+    }
+
+    private List<String> getList() {
         try {
-            final var readList = Files.readAllLines(Constants.PATH_OF_TASKS).stream().toList();
-             taskList.addAll(readList);
-             return taskList;
+           return Files.readAllLines(Constants.PATH_OF_TASKS).stream().toList();
         } catch (IOException e) {
             throw new TodoCanNotReadFileException();
         }
