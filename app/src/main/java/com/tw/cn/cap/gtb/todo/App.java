@@ -5,6 +5,7 @@ package com.tw.cn.cap.gtb.todo;
 
 import java.io.IOException;
 import java.nio.file.Files;
+import java.util.ArrayList;
 import java.util.List;
 
 public class App {
@@ -15,8 +16,12 @@ public class App {
     }
 
     public List<String> run() {
+        final var taskList = new ArrayList<String>();
+        taskList.add("#To be done");
         try {
-            return  Files.readAllLines(Constants.PATH_OF_TASKS).stream().toList();
+            final var readList = Files.readAllLines(Constants.PATH_OF_TASKS).stream().toList();
+             taskList.addAll(readList);
+             return taskList;
         } catch (IOException e) {
             throw new TodoCanNotReadFileException();
         }
