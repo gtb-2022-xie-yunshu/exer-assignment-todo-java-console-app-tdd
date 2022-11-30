@@ -16,15 +16,10 @@ public class TaskRepository {
         for (int i = 0; i < tasks.size() ; i++) {
         final var id = i + 1;
         final var line = tasks.get(i);
-        final Task task = createTask(id, line);
-        taskList.add(task);
+            final Task task = TaskFactory.createTask(id, line);
+            taskList.add(task);
         }
         return taskList;
-    }
-
-    private Task createTask(int id, String line) {
-        final var name = line.split(" ", 2)[1];
-        return new Task(id, name);
     }
 
     public List<String> readTaskLines() {
