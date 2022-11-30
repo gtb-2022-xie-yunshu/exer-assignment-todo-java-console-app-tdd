@@ -3,18 +3,11 @@
  */
 package com.tw.cn.cap.gtb.todo;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.List;
 
 public class App {
-
-    public static final String USER_HOME = System.getProperty("user.home");
-    public static final String TODO = File.separator + ".todo";
-    public static final String TASKS_NAME = File.separator + "tasks";
-    public static final Path PATH_OF_TASKS = Path.of(USER_HOME, TODO, TASKS_NAME);
 
 
     public static void main(String[] args) {
@@ -22,12 +15,10 @@ public class App {
     }
 
     public List<String> run() {
-        List<String> list = null;
         try {
-            list = Files.readAllLines(PATH_OF_TASKS);
+            return  Files.readAllLines(Constants.PATH_OF_TASKS).stream().toList();
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new TodoCanNotReadFileException();
         }
-        return list;
     }
 }
