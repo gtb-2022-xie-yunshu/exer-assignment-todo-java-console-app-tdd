@@ -14,10 +14,10 @@ class AppTest {
     void should_list_exiting_tasks(){
         final var result = new App().run();
         Assertions.assertEquals(
-                List.of("#To be done"
+                List.of("# To be done"
                 ,"1 task 001"
                 ,"2 task 002"
-                ,"3 task 003"),result);
+                        ),result);
 }
 
 }
