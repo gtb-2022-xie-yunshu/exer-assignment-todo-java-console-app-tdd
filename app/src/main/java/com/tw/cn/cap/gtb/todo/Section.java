@@ -23,17 +23,12 @@ public class Section {
     List<String> format(List<Task> loadTasks) {
         final var sectionTaskList = new ArrayList<String>();
         sectionTaskList.add(title);
-<<<<<<< HEAD
         if (loadTasks.size() == 0) {
             sectionTaskList.add("# Empty");
             return sectionTaskList;
         }
         loadTasks.stream()
            .filter(this::isTypeMatches)
-=======
-        loadTasks.stream()
-           .filter(task -> isTypeMatches(task))
->>>>>>> ac21c3a (refactor: extract Section Class)
            .map(Task::format)
            .forEach(sectionTaskList::add);
         return sectionTaskList;

@@ -8,7 +8,7 @@ public class TaskFactoryTest {
 
     @Test
     void should_parse_completed_for_task() {
-        assertFalse(TaskFactory.createTask(1, "+ foo").isCompleted());
+        assertFalse(TaskFactory.createTask(1, " + foo").isCompleted());
     }
 
     @Test
