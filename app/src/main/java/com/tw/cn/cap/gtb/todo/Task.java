@@ -6,6 +6,10 @@ public class Task {
     private final String name;
     private final boolean completed;
 
+    public String getName() {
+        return name;
+    }
+
     public boolean isCompleted() {
         return completed;
     }
