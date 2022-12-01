@@ -17,6 +17,9 @@ class AppTest {
                 List.of("# To be done"
                 ,"1 task 001"
                 ,"2 task 002"
+                ,"# Completed"
+                ,"3 task 003"
+                ,"4 task 004"
                         ),result);
 }
 

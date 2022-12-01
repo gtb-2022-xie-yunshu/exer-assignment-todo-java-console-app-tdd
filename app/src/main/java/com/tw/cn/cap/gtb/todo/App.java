@@ -18,6 +18,7 @@ public class App {
     public List<String> run() {
         List<Task> loadTasks = taskRepository.loadTasks();
 <<<<<<< HEAD
+<<<<<<< HEAD
         final var taskList = new ArrayList<String>();
         taskList.add("# To be done");
         for (Task task:loadTasks) {
@@ -30,6 +31,19 @@ public class App {
         taskList.addAll(Section.getCompleted().format(loadTasks));
 
 >>>>>>> ac21c3a (refactor: extract Section Class)
+=======
+        List<String> taskList = new ArrayList<>();
+        taskList.add("# To be done");
+       loadTasks.stream()
+               .filter(task -> !task.isCompleted())
+               .map(Task::format)
+               .forEach(taskList::add);
+       taskList.add("# Completed");
+        loadTasks.stream()
+                .filter(Task::isCompleted)
+                .map(Task::format)
+                .forEach(taskList::add);
+>>>>>>> e5ad5c6 (feat: show completed taskList)
         return taskList;
     }
 
